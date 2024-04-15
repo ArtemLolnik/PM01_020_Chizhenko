@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PM01_020_Chizhenko
+namespace PM01_020_Chizhenko.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AuthPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AuthPage : Page
     {
-        public MainWindow()
+        public AuthPage()
         {
             InitializeComponent();
-            MyFrame.Content = new Pages.MainPage();
         }
     }
 }
