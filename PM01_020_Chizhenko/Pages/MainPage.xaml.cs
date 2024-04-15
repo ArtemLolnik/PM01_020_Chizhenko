@@ -24,5 +24,20 @@ namespace PM01_020_Chizhenko.Pages
         {
             InitializeComponent();
         }
+
+        private void Auth_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AuthPage());
+        }
+
+        private void ButtonReadMore_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MorePage());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MorePage());
+        }
     }
 }

@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [020_Chihzenko_Bezopasnost]    Script Date: 15.04.2024 13:01:38 ******/
+/****** Object:  Database [020_Chihzenko_Bezopasnost]    Script Date: 15.04.2024 15:55:51 ******/
 CREATE DATABASE [020_Chihzenko_Bezopasnost]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -80,7 +80,7 @@ ALTER DATABASE [020_Chihzenko_Bezopasnost] SET QUERY_STORE = OFF
 GO
 USE [020_Chihzenko_Bezopasnost]
 GO
-/****** Object:  Table [dbo].[actions_table]    Script Date: 15.04.2024 13:01:38 ******/
+/****** Object:  Table [dbo].[actions_table]    Script Date: 15.04.2024 15:55:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -93,7 +93,7 @@ CREATE TABLE [dbo].[actions_table](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[celebretions_table]    Script Date: 15.04.2024 13:01:38 ******/
+/****** Object:  Table [dbo].[celebretions_table]    Script Date: 15.04.2024 15:55:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -110,7 +110,7 @@ CREATE TABLE [dbo].[celebretions_table](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[city_table]    Script Date: 15.04.2024 13:01:38 ******/
+/****** Object:  Table [dbo].[city_table]    Script Date: 15.04.2024 15:55:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -124,20 +124,23 @@ CREATE TABLE [dbo].[city_table](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[country_table_3]    Script Date: 15.04.2024 13:01:38 ******/
+/****** Object:  Table [dbo].[country_table_3]    Script Date: 15.04.2024 15:55:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[country_table_3](
 	[id] [int] NOT NULL,
+	[name_country] [nvarchar](4000) NOT NULL,
+	[english_name_country] [nvarchar](4000) NOT NULL,
+	[id_litteral] [nvarchar](5) NOT NULL,
  CONSTRAINT [PK_country_table_3] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[juri_table]    Script Date: 15.04.2024 13:01:38 ******/
+/****** Object:  Table [dbo].[juri_table]    Script Date: 15.04.2024 15:55:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -159,7 +162,7 @@ CREATE TABLE [dbo].[juri_table](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[members_table]    Script Date: 15.04.2024 13:01:38 ******/
+/****** Object:  Table [dbo].[members_table]    Script Date: 15.04.2024 15:55:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -172,13 +175,13 @@ CREATE TABLE [dbo].[members_table](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[moders_table]    Script Date: 15.04.2024 13:01:38 ******/
+/****** Object:  Table [dbo].[moders_table]    Script Date: 15.04.2024 15:55:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[moders_table](
-	[id] [int] NOT NULL,
+	[id] [int] IDENTITY(1,1) NOT NULL,
 	[fio_moders] [nvarchar](max) NOT NULL,
 	[sex_moders] [int] NOT NULL,
 	[mail_moders] [nvarchar](max) NOT NULL,
@@ -195,7 +198,7 @@ CREATE TABLE [dbo].[moders_table](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[orginizators_table]    Script Date: 15.04.2024 13:01:38 ******/
+/****** Object:  Table [dbo].[orginizators_table]    Script Date: 15.04.2024 15:55:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -208,7 +211,7 @@ CREATE TABLE [dbo].[orginizators_table](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[sex_table]    Script Date: 15.04.2024 13:01:38 ******/
+/****** Object:  Table [dbo].[sex_table]    Script Date: 15.04.2024 15:55:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1736,6 +1739,522 @@ INSERT [dbo].[city_table] ([id], [city_name]) VALUES (749, N'Покров')
 GO
 INSERT [dbo].[city_table] ([id], [city_name]) VALUES (750, N'Покровск')
 GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (4, N'Афганистан', N'Afghanistan', N'AF')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (8, N'Албания', N'Albania', N'AL')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (10, N'Антарктида', N'Antarctica', N'AQ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (12, N'Алжир', N'Algeria', N'DZ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (16, N'Американское Самоа', N'American Samoa', N'AS')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (20, N'Андорра', N'Andorra', N'AD')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (24, N'Ангола', N'Angola', N'AO')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (28, N'Антигуа и Барбуда', N'Antigua and Barbuda', N'AG')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (31, N'Азербайджан', N'Azerbaijan', N'AZ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (32, N'Аргентина', N'Argentina', N'AR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (36, N'Австралия', N'Australia', N'AU')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (40, N'Австрия', N'Austria', N'AT')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (44, N'Багамы', N'Bahamas', N'BS')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (48, N'Бахрейн', N'Bahrain', N'BH')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (50, N'Бангладеш', N'Bangladesh', N'BD')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (51, N'Армения', N'Armenia', N'AM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (52, N'Барбадос', N'Barbados', N'BB')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (56, N'Бельгия', N'Belgium', N'BE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (60, N'Бермуды', N'Bermuda', N'BM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (64, N'Бутан', N'Bhutan', N'BT')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (68, N'Боливия, Многонациональное Государство', N'Bolivia, plurinational state of', N'BO')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (70, N'Босния и Герцеговина', N'Bosnia and Herzegovina', N'BA')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (72, N'Ботсвана', N'Botswana', N'BW')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (74, N'Остров Буве', N'Bouvet Island', N'BV')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (76, N'Бразилия', N'Brazil', N'BR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (84, N'Белиз', N'Belize', N'BZ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (86, N'Британская территория в Индийском океане', N'British Indian Ocean Territory', N'IO')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (90, N'Соломоновы острова', N'Solomon Islands', N'SB')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (92, N'Виргинские острова, Британские', N'Virgin Islands, British', N'VG')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (96, N'Бруней-Даруссалам', N'Brunei Darussalam', N'BN')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (100, N'Болгария', N'Bulgaria', N'BG')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (104, N'Мьянма', N'Myanmar', N'MM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (108, N'Бурунди', N'Burundi', N'BI')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (112, N'Беларусь', N'Belarus', N'BY')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (116, N'Камбоджа', N'Cambodia', N'KH')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (120, N'Камерун', N'Cameroon', N'CM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (124, N'Канада', N'Canada', N'CA')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (132, N'Кабо-Верде', N'Cape Verde', N'CV')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (136, N'Острова Кайман', N'Cayman Islands', N'KY')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (140, N'Центрально-Африканская Республика', N'Central African Republic', N'CF')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (144, N'Шри-Ланка', N'Sri Lanka', N'LK')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (148, N'Чад', N'Chad', N'TD')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (152, N'Чили', N'Chile', N'CL')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (156, N'Китай', N'China', N'CN')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (158, N'Тайвань (Китай)', N'Taiwan, Province of China', N'TW')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (162, N'Остров Рождества', N'Christmas Island', N'CX')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (166, N'Кокосовые (Килинг) острова', N'Cocos (Keeling) Islands', N'CC')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (170, N'Колумбия', N'Colombia', N'CO')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (174, N'Коморы', N'Comoros', N'KM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (175, N'Майотта', N'Mayotte', N'YT')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (178, N'Конго', N'Congo', N'CG')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (180, N'Конго, Демократическая Республика', N'Congo, Democratic Republic of the', N'CD')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (184, N'Острова Кука', N'Cook Islands', N'CK')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (188, N'Коста-Рика', N'Costa Rica', N'CR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (191, N'Хорватия', N'Croatia', N'HR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (192, N'Куба', N'Cuba', N'CU')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (196, N'Кипр', N'Cyprus', N'CY')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (203, N'Чешская Республика', N'Czech Republic', N'CZ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (204, N'Бенин', N'Benin', N'BJ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (208, N'Дания', N'Denmark', N'DK')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (212, N'Доминика', N'Dominica', N'DM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (214, N'Доминиканская Республика', N'Dominican Republic', N'DO')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (218, N'Эквадор', N'Ecuador', N'EC')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (222, N'Эль-Сальвадор', N'El Salvador', N'SV')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (226, N'Экваториальная Гвинея', N'Equatorial Guinea', N'GQ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (231, N'Эфиопия', N'Ethiopia', N'ET')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (232, N'Эритрея', N'Eritrea', N'ER')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (233, N'Эстония', N'Estonia', N'EE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (234, N'Фарерские острова', N'Faroe Islands', N'FO')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (238, N'Фолклендские острова (Мальвинские)', N'Falkland Islands (Malvinas)', N'FK')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (239, N'Южная Джорджия и Южные Сандвичевы острова', N'South Georgia and the South Sandwich Islands', N'GS')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (242, N'Фиджи', N'Fiji', N'FJ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (246, N'Финляндия', N'Finland', N'FI')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (248, N'Эландские острова', N'Åland Islands', N'AX')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (250, N'Франция', N'France', N'FR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (254, N'Французская Гвиана', N'French Guiana', N'GF')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (258, N'Французская Полинезия', N'French Polynesia', N'PF')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (260, N'Французские Южные территории', N'French Southern Territories', N'TF')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (262, N'Джибути', N'Djibouti', N'DJ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (266, N'Габон', N'Gabon', N'GA')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (268, N'Грузия', N'Georgia', N'GE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (270, N'Гамбия', N'Gambia', N'GM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (275, N'Палестинская территория, оккупированная', N'Palestinian Territory, Occupied', N'PS')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (276, N'Германия', N'Germany', N'DE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (288, N'Гана', N'Ghana', N'GH')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (292, N'Гибралтар', N'Gibraltar', N'GI')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (296, N'Кирибати', N'Kiribati', N'KI')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (300, N'Греция', N'Greece', N'GR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (304, N'Гренландия', N'Greenland', N'GL')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (308, N'Гренада', N'Grenada', N'GD')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (312, N'Гваделупа', N'Guadeloupe', N'GP')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (316, N'Гуам', N'Guam', N'GU')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (320, N'Гватемала', N'Guatemala', N'GT')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (324, N'Гвинея', N'Guinea', N'GN')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (328, N'Гайана', N'Guyana', N'GY')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (332, N'Гаити', N'Haiti', N'HT')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (334, N'Остров Херд и острова Макдональд', N'Heard Island and McDonald Islands', N'HM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (336, N'Папский Престол (Государство — город Ватикан)', N'Holy See (Vatican City State)', N'VA')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (340, N'Гондурас', N'Honduras', N'HN')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (344, N'Гонконг', N'Hong Kong', N'HK')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (348, N'Венгрия', N'Hungary', N'HU')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (352, N'Исландия', N'Iceland', N'IS')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (356, N'Индия', N'India', N'IN')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (360, N'Индонезия', N'Indonesia', N'ID')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (364, N'Иран, Исламская Республика', N'Iran, Islamic Republic of', N'IR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (368, N'Ирак', N'Iraq', N'IQ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (372, N'Ирландия', N'Ireland', N'IE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (376, N'Израиль', N'Israel', N'IL')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (380, N'Италия', N'Italy', N'IT')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (384, N'Кот д''Ивуар', N'Cote d''Ivoire', N'CI')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (388, N'Ямайка', N'Jamaica', N'JM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (392, N'Япония', N'Japan', N'JP')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (398, N'Казахстан', N'Kazakhstan', N'KZ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (400, N'Иордания', N'Jordan', N'JO')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (404, N'Кения', N'Kenya', N'KE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (408, N'Корея, Народно-Демократическая Республика', N'Korea, Democratic People''s republic of', N'KP')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (410, N'Корея, Республика', N'Korea, Republic of', N'KR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (414, N'Кувейт', N'Kuwait', N'KW')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (417, N'Киргизия', N'Kyrgyzstan', N'KG')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (418, N'Лаос', N'Lao People''s Democratic Republic', N'LA')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (422, N'Ливан', N'Lebanon', N'LB')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (426, N'Лесото', N'Lesotho', N'LS')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (428, N'Латвия', N'Latvia', N'LV')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (430, N'Либерия', N'Liberia', N'LR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (434, N'Ливийская Арабская Джамахирия', N'Libyan Arab Jamahiriya', N'LY')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (438, N'Лихтенштейн', N'Liechtenstein', N'LI')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (440, N'Литва', N'Lithuania', N'LT')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (442, N'Люксембург', N'Luxembourg', N'LU')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (446, N'Макао', N'Macao', N'MO')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (450, N'Мадагаскар', N'Madagascar', N'MG')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (454, N'Малави', N'Malawi', N'MW')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (458, N'Малайзия', N'Malaysia', N'MY')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (462, N'Мальдивы', N'Maldives', N'MV')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (466, N'Мали', N'Mali', N'ML')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (470, N'Мальта', N'Malta', N'MT')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (474, N'Мартиника', N'Martinique', N'MQ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (478, N'Мавритания', N'Mauritania', N'MR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (480, N'Маврикий', N'Mauritius', N'MU')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (484, N'Мексика', N'Mexico', N'MX')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (492, N'Монако', N'Monaco', N'MC')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (496, N'Монголия', N'Mongolia', N'MN')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (498, N'Молдова, Республика', N'Moldova', N'MD')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (499, N'Черногория', N'Montenegro', N'ME')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (500, N'Монтсеррат', N'Montserrat', N'MS')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (504, N'Марокко', N'Morocco', N'MA')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (508, N'Мозамбик', N'Mozambique', N'MZ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (512, N'Оман', N'Oman', N'OM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (516, N'Намибия', N'Namibia', N'NA')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (520, N'Науру', N'Nauru', N'NR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (524, N'Непал', N'Nepal', N'NP')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (528, N'Нидерланды', N'Netherlands', N'NL')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (531, N'Кюрасао', N'Curaçao', N'CW')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (533, N'Аруба', N'Aruba', N'AW')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (534, N'Синт-Мартен', N'Sint Maarten', N'SX')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (535, N'Бонайре, Саба и Синт-Эстатиус', N'Bonaire, Sint Eustatius and Saba', N'BQ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (540, N'Новая Каледония', N'New Caledonia', N'NC')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (548, N'Вануату', N'Vanuatu', N'VU')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (554, N'Новая Зеландия', N'New Zealand', N'NZ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (558, N'Никарагуа', N'Nicaragua', N'NI')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (562, N'Нигер', N'Niger', N'NE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (566, N'Нигерия', N'Nigeria', N'NG')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (570, N'Ниуэ', N'Niue', N'NU')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (574, N'Остров Норфолк', N'Norfolk Island', N'NF')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (578, N'Норвегия', N'Norway', N'NO')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (580, N'Северные Марианские острова', N'Northern Mariana Islands', N'MP')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (581, N'Малые Тихоокеанские отдаленные острова Соединенных Штатов', N'United States Minor Outlying Islands', N'UM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (583, N'Микронезия, Федеративные Штаты', N'Micronesia, Federated States of', N'FM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (584, N'Маршалловы острова', N'Marshall Islands', N'MH')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (585, N'Палау', N'Palau', N'PW')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (586, N'Пакистан', N'Pakistan', N'PK')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (591, N'Панама', N'Panama', N'PA')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (598, N'Папуа-Новая Гвинея', N'Papua New Guinea', N'PG')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (600, N'Парагвай', N'Paraguay', N'PY')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (604, N'Перу', N'Peru', N'PE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (608, N'Филиппины', N'Philippines', N'PH')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (612, N'Питкерн', N'Pitcairn', N'PN')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (616, N'Польша', N'Poland', N'PL')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (620, N'Португалия', N'Portugal', N'PT')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (624, N'Гвинея-Бисау', N'Guinea-Bissau', N'GW')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (626, N'Тимор-Лесте', N'Timor-Leste', N'TL')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (630, N'Пуэрто-Рико', N'Puerto Rico', N'PR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (634, N'Катар', N'Qatar', N'QA')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (638, N'Реюньон', N'Reunion', N'RE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (642, N'Румыния', N'Romania', N'RO')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (643, N'Россия', N'Russian Federation', N'RU')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (646, N'Руанда', N'Rwanda', N'RW')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (652, N'Сен-Бартельми', N'Saint Barthélemy', N'BL')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (654, N'Святая Елена, Остров вознесения, Тристан-да-Кунья', N'Saint Helena, Ascension And Tristan Da Cunha', N'SH')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (659, N'Сент-Китс и Невис', N'Saint Kitts and Nevis', N'KN')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (660, N'Ангилья', N'Anguilla', N'AI')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (662, N'Сент-Люсия', N'Saint Lucia', N'LC')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (663, N'Сен-Мартен', N'Saint Martin (French Part)', N'MF')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (666, N'Сент-Пьер и Микелон', N'Saint Pierre and Miquelon', N'PM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (670, N'Сент-Винсент и Гренадины', N'Saint Vincent and the Grenadines', N'VC')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (674, N'Сан-Марино', N'San Marino', N'SM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (678, N'Сан-Томе и Принсипи', N'Sao Tome and Principe', N'ST')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (682, N'Саудовская Аравия', N'Saudi Arabia', N'SA')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (686, N'Сенегал', N'Senegal', N'SN')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (688, N'Сербия', N'Serbia', N'RS')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (690, N'Сейшелы', N'Seychelles', N'SC')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (694, N'Сьерра-Леоне', N'Sierra Leone', N'SL')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (702, N'Сингапур', N'Singapore', N'SG')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (703, N'Словакия', N'Slovakia', N'SK')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (704, N'Вьетнам', N'Vietnam', N'VN')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (705, N'Словения', N'Slovenia', N'SI')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (706, N'Сомали', N'Somalia', N'SO')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (710, N'Южная Африка', N'South Africa', N'ZA')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (716, N'Зимбабве', N'Zimbabwe', N'ZW')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (724, N'Испания', N'Spain', N'ES')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (728, N'Южный Судан', N'South Sudan', N'SS')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (729, N'Судан', N'Sudan', N'SD')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (732, N'Западная Сахара', N'Western Sahara', N'EH')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (740, N'Суринам', N'Suriname', N'SR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (744, N'Шпицберген и Ян Майен', N'Svalbard and Jan Mayen', N'SJ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (748, N'Свазиленд', N'Swaziland', N'SZ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (752, N'Швеция', N'Sweden', N'SE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (756, N'Швейцария', N'Switzerland', N'CH')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (760, N'Сирийская Арабская Республика', N'Syrian Arab Republic', N'SY')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (762, N'Таджикистан', N'Tajikistan', N'TJ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (764, N'Таиланд', N'Thailand', N'TH')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (768, N'Того', N'Togo', N'TG')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (772, N'Токелау', N'Tokelau', N'TK')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (776, N'Тонга', N'Tonga', N'TO')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (780, N'Тринидад и Тобаго', N'Trinidad and Tobago', N'TT')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (784, N'Объединенные Арабские Эмираты', N'United Arab Emirates', N'AE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (788, N'Тунис', N'Tunisia', N'TN')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (792, N'Турция', N'Turkey', N'TR')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (795, N'Туркмения', N'Turkmenistan', N'TM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (796, N'Острова Теркс и Кайкос', N'Turks and Caicos Islands', N'TC')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (798, N'Тувалу', N'Tuvalu', N'TV')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (800, N'Уганда', N'Uganda', N'UG')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (804, N'Украина', N'Ukraine', N'UA')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (807, N'Республика Македония', N'Macedonia, The Former Yugoslav Republic Of', N'MK')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (818, N'Египет', N'Egypt', N'EG')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (826, N'Соединенное Королевство', N'United Kingdom', N'GB')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (831, N'Гернси', N'Guernsey', N'GG')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (832, N'Джерси', N'Jersey', N'JE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (833, N'Остров Мэн', N'Isle of Man', N'IM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (834, N'Танзания, Объединенная Республика', N'Tanzania, United Republic Of', N'TZ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (840, N'Соединенные Штаты', N'United States', N'US')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (850, N'Виргинские острова, США', N'Virgin Islands, U.S.', N'VI')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (854, N'Буркина-Фасо', N'Burkina Faso', N'BF')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (858, N'Уругвай', N'Uruguay', N'UY')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (860, N'Узбекистан', N'Uzbekistan', N'UZ')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (862, N'Венесуэла Боливарианская Республика', N'Venezuela', N'VE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (876, N'Уоллис и Футуна', N'Wallis and Futuna', N'WF')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (882, N'Самоа', N'Samoa', N'WS')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (887, N'Йемен', N'Yemen', N'YE')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (894, N'Замбия', N'Zambia', N'ZM')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (895, N'Абхазия', N'Abkhazia', N'AB')
+GO
+INSERT [dbo].[country_table_3] ([id], [name_country], [english_name_country], [id_litteral]) VALUES (896, N'Южная Осетия', N'South Ossetia', N'OS')
+GO
+SET IDENTITY_INSERT [dbo].[juri_table] ON 
+GO
+INSERT [dbo].[juri_table] ([id], [fio_juri], [mail_juri], [birthday_juri], [id_country_juri], [number_phone_juri], [forwarding_juri], [password_juri], [photo_juri], [id_sex_juri]) VALUES (10, N'Галкина Верона Васильевна', N'obuckridge@sipes.com', CAST(N'1969-08-05T00:00:00.000' AS DateTime), 35, N'8805446183', N'Дизайн', N'HHikbP', N'foto21.jpg', 2)
+GO
+INSERT [dbo].[juri_table] ([id], [fio_juri], [mail_juri], [birthday_juri], [id_country_juri], [number_phone_juri], [forwarding_juri], [password_juri], [photo_juri], [id_sex_juri]) VALUES (11, N'Большаков Августин Алексеевич', N'juanita.kuvalis@yahoo.com', CAST(N'1978-07-12T00:00:00.000' AS DateTime), 52, N'1737705513', N'ИТ', N'4Y83lz', N'foto23.jpg', 1)
+GO
+INSERT [dbo].[juri_table] ([id], [fio_juri], [mail_juri], [birthday_juri], [id_country_juri], [number_phone_juri], [forwarding_juri], [password_juri], [photo_juri], [id_sex_juri]) VALUES (12, N'Маслова Марфа Феликсовна', N'pearlie.watsica@wintheiser.com', CAST(N'1997-12-11T00:00:00.000' AS DateTime), 52, N'6157411177', N'Биг Дата', N'zC4bi7', N'foto27.jpg', 2)
+GO
+INSERT [dbo].[juri_table] ([id], [fio_juri], [mail_juri], [birthday_juri], [id_country_juri], [number_phone_juri], [forwarding_juri], [password_juri], [photo_juri], [id_sex_juri]) VALUES (13, N'Гришин Вениамин Петрович', N'kaela97@hotmail.com', CAST(N'1954-05-10T00:00:00.000' AS DateTime), 72, N'4207880409', N'Информационная безопасность', N'ubeQbm', N'foto28.jpg', 1)
+GO
+INSERT [dbo].[juri_table] ([id], [fio_juri], [mail_juri], [birthday_juri], [id_country_juri], [number_phone_juri], [forwarding_juri], [password_juri], [photo_juri], [id_sex_juri]) VALUES (15, N'Гришин Владислав Аркадьевич', N'gino.baumbach@gmail.com', CAST(N'1950-01-08T00:00:00.000' AS DateTime), 34, N'2070887939', N'ИТ', N'16BLjl', N'foto29.jpg', 1)
+GO
+SET IDENTITY_INSERT [dbo].[juri_table] OFF
+GO
 SET IDENTITY_INSERT [dbo].[sex_table] ON 
 GO
 INSERT [dbo].[sex_table] ([id], [name_sex]) VALUES (1, N'Мужской')
@@ -1743,6 +2262,11 @@ GO
 INSERT [dbo].[sex_table] ([id], [name_sex]) VALUES (2, N'Женский')
 GO
 SET IDENTITY_INSERT [dbo].[sex_table] OFF
+GO
+ALTER TABLE [dbo].[juri_table]  WITH CHECK ADD  CONSTRAINT [FK_juri_table_sex_table] FOREIGN KEY([id_sex_juri])
+REFERENCES [dbo].[sex_table] ([id])
+GO
+ALTER TABLE [dbo].[juri_table] CHECK CONSTRAINT [FK_juri_table_sex_table]
 GO
 USE [master]
 GO
